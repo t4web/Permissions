@@ -31,6 +31,9 @@
             "T4webPermissionsTest\\UnitTest": "tests/UnitTest/",
             "T4webPermissionsTest\\FunctionalTest": "tests/FunctionalTest/",
             "T4webPermissionsTest\\AcceptanceTest": "tests/AcceptanceTest/"
-        }
+        },
+        "classmap": [
+          "./Module.php"
+        ]
     }
 }

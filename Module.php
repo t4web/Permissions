@@ -12,16 +12,16 @@ use Zend\ServiceManager\ServiceManager;
 use Zend\EventManager\EventInterface;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
-                        ControllerProviderInterface, BootstrapListenerInterface
+                        ControllerProviderInterface//, BootstrapListenerInterface
 {
-    public function onBootstrap(EventInterface $e)
+    /*public function onBootstrap(EventInterface $e)
     {
         $t = $e->getTarget();
 
         $t->getEventManager()->attach(
             $t->getServiceManager()->get('ZfcRbac\View\Strategy\RedirectStrategy')
         );
-    }
+    }*/
 
     public function getConfig($env = null)
     {
