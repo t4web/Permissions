@@ -1,0 +1,42 @@
+{
+    "name": "t4web/permissions",
+    "description": "ZF2 Module for managing site permissions. Wrapper for ZfcRbac.",
+    "type": "library",
+    "license": "GPL-2.0",
+    "keywords": [
+        "zf2",
+        "permissions",
+        "rbac"
+    ],
+    "homepage": "https://github.com/t4web/Permissions",
+    "authors": [
+        {
+            "name": "Max Gulturyan",
+            "email": "gulturyan@gmail.com",
+            "homepage": "http://about.me/maxgu"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/Permissions.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zendframework/zendframework": "2.4.*",
+        "zf-commons/zfc-rbac": "~2.4"
+    },
+    "require-dev" : {
+        "codeception/codeception": "2.*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "T4webPermissions": "src/",
+            "T4webPermissionsTest\\UnitTest": "tests/UnitTest/",
+            "T4webPermissionsTest\\FunctionalTest": "tests/FunctionalTest/",
+            "T4webPermissionsTest\\AcceptanceTest": "tests/AcceptanceTest/"
+        }
+    }
+}
