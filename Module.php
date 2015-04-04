@@ -11,17 +11,9 @@ use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
 use Zend\EventManager\EventInterface;
 
-class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
-                        ControllerProviderInterface//, BootstrapListenerInterface
+class Module implements AutoloaderProviderInterface, ConfigProviderInterface, ServiceProviderInterface,
+                        ControllerProviderInterface
 {
-    /*public function onBootstrap(EventInterface $e)
-    {
-        $t = $e->getTarget();
-
-        $t->getEventManager()->attach(
-            $t->getServiceManager()->get('ZfcRbac\View\Strategy\RedirectStrategy')
-        );
-    }*/
 
     public function getConfig($env = null)
     {
@@ -36,6 +28,23 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        );
+    }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'T4webPermissions\Identity\Identity' => function($sm) {
+                    return new Identity\Identity(
+                        $sm->get('T4webAuthentication\Service')
+                    );
+                },
+
+                'Zend\Authentication\AuthenticationService' => function($sm) {
+                    return $sm->get('T4webPermissions\Identity\Identity');
+                }
+            )
         );
     }
 

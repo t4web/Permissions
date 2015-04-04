@@ -16,10 +16,23 @@
             "homepage": "http://about.me/maxgu"
         }
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/authentication.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/t4web/base.git"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",
         "zendframework/zendframework": "2.4.*",
-        "zf-commons/zfc-rbac": "~2.4"
+        "zf-commons/zfc-rbac": "~2.4",
+
+        "t4web/authentication": "dev-master",
+        "t4web/base": "dev-master"
     },
     "require-dev" : {
         "codeception/codeception": "2.*"
