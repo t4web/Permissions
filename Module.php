@@ -9,10 +9,20 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\Mvc\Controller\ControllerManager;
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ServiceManager\ServiceManager;
+use Zend\EventManager\EventInterface;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface,
-                        ControllerProviderInterface
+                        ControllerProviderInterface, BootstrapListenerInterface
 {
+    public function onBootstrap(EventInterface $e)
+    {
+        $t = $e->getTarget();
+
+        $t->getEventManager()->attach(
+            $t->getServiceManager()->get('ZfcRbac\View\Strategy\RedirectStrategy')
+        );
+    }
+
     public function getConfig($env = null)
     {
         return include __DIR__ . '/config/module.config.php';

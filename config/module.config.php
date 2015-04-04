@@ -2,6 +2,20 @@
 
 return array(
 
+    'zfc_rbac' => [
+        'role_provider' => [
+            'ZfcRbac\Role\InMemoryRoleProvider' => [
+                'admin' => [
+                    'children'    => ['member'],
+                    'permissions' => ['delete']
+                ],
+                'member' => [
+                    'permissions' => ['edit']
+                ]
+            ]
+        ]
+    ],
+
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
