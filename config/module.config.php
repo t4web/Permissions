@@ -29,7 +29,7 @@ return array(
             'permissions-list' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route'    => '/permissions',
+                    'route'    => '/admin/permissions',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
                         'controller'    => 'List',

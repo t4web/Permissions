@@ -44,7 +44,11 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
                 'Zend\Authentication\AuthenticationService' => function($sm) {
                     return $sm->get('T4webPermissions\Identity\Identity');
                 }
-            )
+            ),
+
+            'invokables' => array(
+                'T4webPermissions\Controller\Admin\RolesViewModel' => 'T4webPermissions\Controller\Admin\RolesViewModel',
+            ),
         );
     }
 
@@ -52,6 +56,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
     {
         return array(
             'factories' => array(
+                'T4webPermissions\Controller\Admin\List' => function (ControllerManager $cm) {
+                    $sl = $cm->getServiceLocator();
+                    return new Controller\Admin\RolesController(
+                        /*$sl->get('T4webPermissions\Employee\Service\Finder'),*/
+                        $sl->get('T4webPermissions\Controller\Admin\RolesViewModel')
+                    );
+                },
             )
         );
     }
