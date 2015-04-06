@@ -26,7 +26,7 @@ return array(
 
     'router' => array(
         'routes' => array(
-            'permissions-list' => array(
+            'admin-permissions-list' => array(
                 'type' => 'Literal',
                 'options' => array(
                     'route'    => '/admin/permissions',
