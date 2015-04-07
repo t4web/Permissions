@@ -12,7 +12,7 @@ use Zend\ServiceManager\ServiceManager;
 use Zend\EventManager\EventInterface;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface, ServiceProviderInterface,
-                        ControllerProviderInterface
+                        ControllerProviderInterface, ConsoleUsageProviderInterface
 {
 
     public function getConfig($env = null)
@@ -28,6 +28,13 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
             ),
+        );
+    }
+
+    public function getConsoleUsage(ConsoleAdapterInterface $console)
+    {
+        return array(
+            'permissions init' => 'Initialize module',
         );
     }
 
@@ -56,6 +63,14 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
     {
         return array(
             'factories' => array(
+                'T4webPermissions\Controller\Console\Init' => function (ControllerManager $cm) {
+                    $sl = $cm->getServiceLocator();
+
+                    return new Controller\Console\InitController(
+                        $sl->get('Zend\Db\Adapter\Adapter')
+                    );
+                },
+
                 'T4webPermissions\Controller\Admin\List' => function (ControllerManager $cm) {
                     $sl = $cm->getServiceLocator();
                     return new Controller\Admin\RolesController(
