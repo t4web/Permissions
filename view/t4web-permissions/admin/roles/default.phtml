@@ -12,7 +12,7 @@
         <div class="box-header">
             <h3 class="box-title">Roles</h3>
             <div class="box-tools">
-                <a href="/employee/add" class="btn btn-labeled btn-primary btn-sm">
+                <a href="<?=$this->url('admin-permissions-roles-add')?>" class="btn btn-labeled btn-primary btn-sm">
                     <i class="btn-label fa fa-plus"></i> Add role
                 </a>
             </div>
@@ -22,11 +22,14 @@
                 <tr>
                     <th style="width: 10px">#</th>
                     <th>Name</th>
+                    <th style="width: 200px">Permissions</th>
                     <th style="width: 200px">Actions</th>
                 </tr>
                 <tr>
                     <td>1</td>
                     <td>Administrators</td>
+                    <td><a href="<?=$this->url('admin-permissions-roles-permissions', ['id' => 1])?>" >Show permissions</a>
+                    </td>
                     <td>
                         <a href="<?=$this->url('admin-permissions-roles-edit', ['id' => 1])?>" class="btn btn-warning btn-xs" >
                             <i class="fa fa-pencil"></i> Edit
@@ -39,6 +42,7 @@
                 <tr>
                     <td>2</td>
                     <td>Users</td>
+                    <td><a href="<?=$this->url('admin-permissions-roles-permissions', ['id' => 1])?>" >Show permissions</a>
                     <td>
                         <a href="<?=$this->url('admin-permissions-roles-edit', ['id' => 1])?>" class="btn btn-warning btn-xs" >
                             <i class="fa fa-pencil"></i> Edit
@@ -51,6 +55,7 @@
                 <tr>
                     <td>3</td>
                     <td>Moderators</td>
+                    <td><a href="<?=$this->url('admin-permissions-roles-permissions', ['id' => 1])?>" >Show permissions</a>
                     <td>
                         <a href="<?=$this->url('admin-permissions-roles-edit', ['id' => 1])?>" class="btn btn-warning btn-xs" >
                             <i class="fa fa-pencil"></i> Edit
@@ -63,6 +68,7 @@
                 <tr>
                     <td>4</td>
                     <td>Translators</td>
+                    <td><a href="<?=$this->url('admin-permissions-roles-permissions', ['id' => 1])?>" >Show permissions</a>
                     <td>
                         <a href="<?=$this->url('admin-permissions-roles-edit', ['id' => 1])?>" class="btn btn-warning btn-xs" >
                             <i class="fa fa-pencil"></i> Edit

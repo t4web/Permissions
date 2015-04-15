@@ -37,6 +37,17 @@ return array(
                     ),
                 ),
             ),
+            'admin-permissions-roles-add' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/admin/permissions/role/add',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
+                        'controller'    => 'List',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
             'admin-permissions-roles-edit' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -59,10 +70,10 @@ return array(
                     ),
                 ),
             ),
-            'admin-permissions-list' => array(
-                'type' => 'Literal',
+            'admin-permissions-roles-permissions' => array(
+                'type' => 'Segment',
                 'options' => array(
-                    'route'    => '/admin/permissions/list',
+                    'route'    => '/admin/permissions/role/:id/permissions',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
                         'controller'    => 'List',
