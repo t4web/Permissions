@@ -26,10 +26,43 @@ return array(
 
     'router' => array(
         'routes' => array(
+            'admin-permissions-roles-list' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/admin/permissions/roles',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
+                        'controller'    => 'List',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
+            'admin-permissions-roles-edit' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/admin/permissions/role/:id/edit',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
+                        'controller'    => 'List',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
+            'admin-permissions-roles-delete' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/admin/permissions/role/:id/delete',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
+                        'controller'    => 'List',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
             'admin-permissions-list' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route'    => '/admin/permissions',
+                    'route'    => '/admin/permissions/list',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
                         'controller'    => 'List',
