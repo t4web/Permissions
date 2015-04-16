@@ -55,6 +55,8 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
 
             'invokables' => array(
                 'T4webPermissions\Controller\Admin\RolesViewModel' => 'T4webPermissions\Controller\Admin\RolesViewModel',
+                'T4webPermissions\Controller\Admin\RoleViewModel' => 'T4webPermissions\Controller\Admin\RoleViewModel',
+                'T4webPermissions\Controller\Admin\PermissionsViewModel' => 'T4webPermissions\Controller\Admin\PermissionsViewModel',
             ),
         );
     }
@@ -71,11 +73,27 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
                     );
                 },
 
-                'T4webPermissions\Controller\Admin\List' => function (ControllerManager $cm) {
+                'T4webPermissions\Controller\Admin\Roles' => function (ControllerManager $cm) {
                     $sl = $cm->getServiceLocator();
                     return new Controller\Admin\RolesController(
                         /*$sl->get('T4webPermissions\Employee\Service\Finder'),*/
                         $sl->get('T4webPermissions\Controller\Admin\RolesViewModel')
+                    );
+                },
+
+                'T4webPermissions\Controller\Admin\RoleCreate' => function (ControllerManager $cm) {
+                    $sl = $cm->getServiceLocator();
+                    return new Controller\Admin\RoleCreateController(
+                        /*$sl->get('T4webPermissions\Employee\Service\Finder'),*/
+                        $sl->get('T4webPermissions\Controller\Admin\RoleViewModel')
+                    );
+                },
+
+                'T4webPermissions\Controller\Admin\Permissions' => function (ControllerManager $cm) {
+                    $sl = $cm->getServiceLocator();
+                    return new Controller\Admin\PermissionsController(
+                        /*$sl->get('T4webPermissions\Employee\Service\Finder'),*/
+                        $sl->get('T4webPermissions\Controller\Admin\PermissionsViewModel')
                     );
                 },
             )

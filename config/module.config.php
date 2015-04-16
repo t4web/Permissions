@@ -32,7 +32,7 @@ return array(
                     'route'    => '/admin/permissions/roles',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
-                        'controller'    => 'List',
+                        'controller'    => 'Roles',
                         'action'        => 'default',
                     ),
                 ),
@@ -43,7 +43,7 @@ return array(
                     'route'    => '/admin/permissions/role/add',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
-                        'controller'    => 'List',
+                        'controller'    => 'RoleCreate',
                         'action'        => 'default',
                     ),
                 ),
@@ -54,7 +54,7 @@ return array(
                     'route'    => '/admin/permissions/role/:id/edit',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
-                        'controller'    => 'List',
+                        'controller'    => 'Roles',
                         'action'        => 'default',
                     ),
                 ),
@@ -65,7 +65,7 @@ return array(
                     'route'    => '/admin/permissions/role/:id/delete',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
-                        'controller'    => 'List',
+                        'controller'    => 'Roles',
                         'action'        => 'default',
                     ),
                 ),
@@ -76,7 +76,7 @@ return array(
                     'route'    => '/admin/permissions/role/:id/permissions',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
-                        'controller'    => 'List',
+                        'controller'    => 'Permissions',
                         'action'        => 'default',
                     ),
                 ),

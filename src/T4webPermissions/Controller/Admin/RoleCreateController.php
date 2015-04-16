@@ -9,7 +9,7 @@ use T4webEmployees\Employee\Service\WorkInfoPopulate;
 use T4webEmployees\Employee\Service\SocialPopulate;
 use T4webEmployees\Employee\EmployeeCollection;
 
-class RolesController extends AbstractActionController {
+class RoleCreateController extends AbstractActionController {
 
     /**
      * @var BaseFinder
@@ -17,20 +17,20 @@ class RolesController extends AbstractActionController {
     private $finder;
 
     /**
-     * @var RolesViewModel
+     * @var RoleViewModel
      */
     private $view;
 
     public function __construct(
         /*BaseFinder $finder,*/
-        RolesViewModel $view)
+        RoleViewModel $view)
     {
         /*$this->finder = $finder;*/
         $this->view = $view;
     }
 
     /**
-     * @return RolesViewModel
+     * @return RoleViewModel
      */
     public function defaultAction()
     {
