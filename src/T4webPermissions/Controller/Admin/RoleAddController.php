@@ -19,7 +19,6 @@ class RoleAddController extends AbstractActionController {
         }
 
         $r = new RoleViewModel();
-        $r->setForm($form);
         //die(var_dump($r->getTemplate()));
         return $r;
     }
