@@ -14,6 +14,12 @@ class RoleViewModel extends ViewModel {
      */
     private $employees;
 
+    public function __construct($variables = null, $options = null)
+    {
+        parent::__construct($variables, $options);
+        $this->template = "t4web-permissions/admin/role-add/default";
+    }
+
     /**
      * @return EmployeeCollection
      */

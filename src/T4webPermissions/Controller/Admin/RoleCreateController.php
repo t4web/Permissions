@@ -3,18 +3,14 @@
 namespace T4webPermissions\Controller\Admin;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use T4webBase\Domain\Service\BaseFinder;
-use T4webEmployees\Employee\Service\PersonalInfoPopulate;
-use T4webEmployees\Employee\Service\WorkInfoPopulate;
-use T4webEmployees\Employee\Service\SocialPopulate;
-use T4webEmployees\Employee\EmployeeCollection;
+use T4webPermissions\Roles\Service\Create as CreateService;
 
 class RoleCreateController extends AbstractActionController {
 
     /**
-     * @var BaseFinder
+     * @var CreateService
      */
-    private $finder;
+    private $createService;
 
     /**
      * @var RoleViewModel
@@ -22,23 +18,35 @@ class RoleCreateController extends AbstractActionController {
     private $view;
 
     public function __construct(
-        /*BaseFinder $finder,*/
-        RoleViewModel $view)
-    {
-        /*$this->finder = $finder;*/
+        RoleViewModel $view, $form/*,
+        CreateService $createService*/) {
+
         $this->view = $view;
+        /*$this->createService = $createService*/;
     }
 
-    /**
-     * @return RoleViewModel
-     */
     public function defaultAction()
     {
-        /** @var $employees EmployeeCollection */
-        /*$employees = $this->finder->findMany();
+        if (!$this->getRequest()->isPost()) {
+            $this->flashMessenger()->addMessage('Bad request', 'general');
+            return $this->view;
+        }
 
-        $this->view->setEmployees($employees);*/
-        return $this->view;
+        $params = $this->getRequest()->getPost()->toArray();
+
+        $employee = $this->createService->create($params);
+
+        if (!$employee) {
+            $this->view->setFormData($params);
+            $this->view->setErrors($this->createService->getErrors());
+            $this->flashMessenger()->addMessage('You are now logged in.');
+            return $this->view;
+        }
+
+        $params['employeeId'] = $employee->getId();
+        $this->view->setFormData($params);
+
+        return $this->redirect()->toRoute('admin-permissions-roles-list');
     }
 
 }

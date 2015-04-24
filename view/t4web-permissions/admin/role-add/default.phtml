@@ -1,0 +1,37 @@
+<section class="content-header">
+    <h1><i class="fa fa-key"></i> Permissions. Create role</h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="callout callout-danger">
+                <h4>Error!</h4>
+                <p>Bad request</p>
+            </div>
+
+            <div class="box">
+                <form action="<?=$this->url('admin-permissions-roles-create')?>" role="form" method="get">
+                    <div class="box-header">
+                        <h3 class="box-title">Role</h3>
+                    </div><!-- /.box-header -->
+
+                    <div class="box-body">
+
+                        <!-- text input -->
+                        <div class="form-group has-error">
+                            <label>Name</label>
+                            <input type="text" placeholder="Enter name" class="form-control">
+                            <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                        </div>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                        <button class="btn btn-primary" type="submit">Create</button>
+                        <a href="<?=$this->url('admin-permissions-roles-list')?>" class="btn btn-default" >Cancel and return to roles</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

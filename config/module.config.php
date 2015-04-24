@@ -43,6 +43,17 @@ return array(
                     'route'    => '/admin/permissions/role/add',
                     'defaults' => array(
                         '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
+                        'controller'    => 'RoleAdd',
+                        'action'        => 'default',
+                    ),
+                ),
+            ),
+            'admin-permissions-roles-create' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/admin/permissions/role/create',
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'T4webPermissions\Controller\Admin',
                         'controller'    => 'RoleCreate',
                         'action'        => 'default',
                     ),

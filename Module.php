@@ -96,7 +96,11 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface, Se
                         $sl->get('T4webPermissions\Controller\Admin\PermissionsViewModel')
                     );
                 },
-            )
+            ),
+
+            'invokables' => array(
+                'T4webPermissions\Controller\Admin\RoleAdd' => 'T4webPermissions\Controller\Admin\RoleAddController',
+            ),
         );
     }
 }
